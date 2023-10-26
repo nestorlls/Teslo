@@ -5,6 +5,10 @@
 /yarn.lock
 package-lock.json
 
+/postgres
+
+.env
+
 # Logs
 logs
 *.log
