@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JoinValidationsSchema } from './config/joi.validate';
+import { ProductsModule } from './products/products.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { JoinValidationsSchema } from './config/joi.validate';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    ProductsModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],
