@@ -128,6 +128,17 @@ export class ProductsService {
     return true;
   }
 
+  //TODO: delete all products for SEEDING
+  async deleteAllProducts() {
+    const query = this.productRepository.createQueryBuilder('product');
+
+    try {
+      return await query.delete().where({}).execute();
+    } catch (error) {
+      this.handleDBExeption(error);
+    }
+  }
+
   private handleDBExeption(error: any) {
     if (error.code === '23505') throw new BadRequestException(error.detail);
 
