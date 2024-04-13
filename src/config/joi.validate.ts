@@ -9,4 +9,5 @@ export const JoinValidationsSchema = Joi.object({
   PORT: Joi.number().default(3000),
   JWT_SECRET: Joi.string().required(),
   API_NAME: Joi.string().default('Teslo API - Shop'),
+  API_PREFIX: Joi.string().required(),
 });

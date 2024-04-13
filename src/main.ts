@@ -5,7 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix(process.env.API_PREFIX);
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
