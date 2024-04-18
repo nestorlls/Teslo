@@ -17,7 +17,7 @@ export class User {
   @Column('text', { select: false })
   password: string;
 
-  @Column('text', { nullable: false, select: false })
+  @Column('text', { nullable: false })
   fullName: string;
 
   @Column('boolean', { default: true })
