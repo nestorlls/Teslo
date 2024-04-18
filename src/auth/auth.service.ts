@@ -33,7 +33,7 @@ export class AuthService {
       delete user.password;
       return {
         user,
-        token: this.getJwtToken({ email: user.email }),
+        token: this.getJwtToken({ id: user.id }),
       };
     } catch (error) {
       this.handleDBError(error);
@@ -60,7 +60,7 @@ export class AuthService {
 
     return {
       user,
-      token: this.getJwtToken({ email: user.email }),
+      token: this.getJwtToken({ id: user.id }),
     };
   }
 
