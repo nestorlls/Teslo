@@ -7,11 +7,11 @@ export class SeedService {
   constructor(private readonly productsService: ProductsService) {}
   async runSeed() {
     await this.insertData();
-    return 'SEED EXECUTED';
+    return { message: 'SEED EXECUTED' };
   }
 
   private async insertData() {
-    this.productsService.deleteAllProducts();
+    await this.productsService.deleteAllProducts();
     const products = initialData.products;
 
     const insertPromises = [];
