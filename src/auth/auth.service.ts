@@ -12,7 +12,7 @@ import * as bcrypt from 'bcrypt';
 
 import { CreateUserDto, LoginUserDto } from './dto';
 import { User } from './entities/user.entity';
-import { IJwtPayload } from './interfaces/jwt-payload.interface';
+import { IJwtPayload } from './interfaces/';
 
 @Injectable()
 export class AuthService {
