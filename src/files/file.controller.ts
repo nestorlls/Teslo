@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ConfigService } from '@nestjs/config';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { diskStorage } from 'multer';
 import { Response } from 'express';
@@ -17,6 +18,7 @@ import { Response } from 'express';
 import { FilesService } from './file.service';
 import { fileFilter, fileNamer } from './helpers';
 
+@ApiTags('Files')
 @Controller('files')
 export class FilesController {
   constructor(
@@ -31,6 +33,9 @@ export class FilesController {
   }
 
   @Post('upload')
+  @ApiResponse({ status: 201, description: 'File was uploaded' })
+  @ApiResponse({ status: 400, description: 'Bad request' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
   @UseInterceptors(
     FileInterceptor('file', {
       fileFilter: fileFilter,
